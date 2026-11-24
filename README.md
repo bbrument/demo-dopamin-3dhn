@@ -1,12 +1,12 @@
 # Atelier DOPAMIn — du Nenuscanner au modèle 3D dans Meshroom
 
-![Acquérir, convertir, reconstruire, explorer](docs/images/banniere.svg)
+[![Journées du Consortium 3D pour les Humanités Numériques 2026](docs/images/jc3dhn2026.jpg)](https://jc3dhn2026.sciencesconf.org/)
 
-**Atelier 2 – Meshroom / Dopamine**, mardi 1er décembre 2026, 14 h – 17 h,
+**Atelier 2 – Meshroom / Dopamine**, mardi 1er décembre 2026, 14 h – 17 h, musée Henri Prades (Lattes) —
 [Journées du Consortium 3D pour les Humanités Numériques 2026](https://jc3dhn2026.sciencesconf.org/).
 
-Vous allez : **installer** Meshroom, **convertir** une acquisition du Nenuscanner, puis **reconstruire** l'objet en 3D
-à partir de ses photos multi-éclairage.
+Vous allez **installer** Meshroom et ses plugins, puis **reconstruire** en 3D un objet photographié par le
+Nenuscanner sous plusieurs éclairages.
 
 > [!IMPORTANT]
 > Faites les étapes 1 à 3 **avant l'atelier** : elles téléchargent 30 Go et durent 1 à 2 heures.
@@ -77,15 +77,14 @@ Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même
 4. Fermez Meshroom, puis lancez **`finaliser.bat`** (Windows) ou `./finaliser.sh` (Linux) : il vérifie les plugins et
    télécharge le moteur de RNb-NeuS2. Attendez le message **Tout est prêt**.
 
-## 4. Convertir l'acquisition du Nenuscanner
+## 4. Reconstruire l'objet
 
-Le Nenuscanner fournit une archive `.zip` (photos et fichier `descriptor.yaml`).
+**Préparer les photos.** Le Nenuscanner fournit une archive `.zip`. En attendant un export direct pour Meshroom,
+glissez-la sur **`convertir.bat`** (Linux : `./convertir.sh chemin/vers/archive.zip`) et répondez **1** (rapide).
+Un dossier `…_meshroom_rapide` apparaît à côté de l'archive.
 
-| Windows | Linux |
-| :-- | :-- |
-| Glissez l'archive sur **`convertir.bat`**. | `./convertir.sh chemin/vers/archive.zip` |
-
-Répondez **1** (rapide) à la question sur la résolution. Un dossier `…_meshroom_rapide` apparaît à côté de l'archive :
+<details>
+<summary>Contenu du dossier</summary>
 
 ```text
 archive_meshroom_rapide/
@@ -96,7 +95,9 @@ archive_meshroom_rapide/
     └── PS_02/ …
 ```
 
-## 5. Reconstruire dans Meshroom
+</details>
+
+**Dans Meshroom :**
 
 1. Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
 2. **File > Open Template**, puis choisissez un fichier du dossier `templates/` :
@@ -122,5 +123,6 @@ Le modèle 3D texturé s'affiche dans la vue 3D à la fin du calcul.
 
 ## Pour aller plus loin
 
+- Bannière : affiche des [JC3DHN 2026](https://jc3dhn2026.sciencesconf.org/), © Consortium 3DHN
 - Méthodes et jeux de données : [mvml-heritage-meshroom](https://github.com/bbrument/mvml-heritage-meshroom)
 - [Meshroom](https://github.com/alicevision/Meshroom) et ses plugins : [MeshroomHub](https://github.com/meshroomHub)
