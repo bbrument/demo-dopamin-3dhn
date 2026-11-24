@@ -6,5 +6,4 @@ if not exist "%~dp0Meshroom\Meshroom.exe" (
     pause
     exit /b 1
 )
-if exist "%~dp0models\sam3.pt" set "RDS_SAM3_MODEL_PATH=%~dp0models\sam3.pt"
 start "" "%~dp0Meshroom\Meshroom.exe"
