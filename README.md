@@ -9,14 +9,14 @@ Vous allez : **installer** Meshroom, **convertir** une acquisition du Nenuscanne
 à partir de ses photos multi-éclairage.
 
 > [!IMPORTANT]
-> Faites les étapes 1 et 2 **avant l'atelier** : l'installation télécharge 30 Go et dure 1 à 2 heures.
+> Faites les étapes 1 à 3 **avant l'atelier** : elles téléchargent 30 Go et durent 1 à 2 heures.
 
 ## Ce qu'il vous faut
 
 | | |
 | :-- | :-- |
 | Système | Windows 10 ou 11, ou Linux (Ubuntu 22.04 ou plus récent) |
-| Carte graphique | NVIDIA, pilote à jour |
+| Carte graphique | NVIDIA, pilote à jour (série RTX 30 ou plus récente pour LINO-UniPS) |
 | Disque | 40 Go libres |
 
 Windows n'a pas encore été testé : dites-nous ce qui coince.
@@ -28,17 +28,56 @@ Windows n'a pas encore été testé : dites-nous ce qui coince.
    - Windows : `C:\dopamin`
    - Linux : `~/dopamin`
 
-## 2. Installer Meshroom et ses plugins
+## 2. Installer Meshroom
 
 | Windows | Linux |
 | :-- | :-- |
 | Double-cliquez sur **`installer.bat`**. | Ouvrez un terminal dans le dossier, puis tapez `./installer.sh` |
 | Si Windows affiche « Windows a protégé votre ordinateur » : **Informations complémentaires**, puis **Exécuter quand même**. | |
 
-Laissez la fenêtre ouverte jusqu'au message **Installation terminée**. En cas de coupure, relancez : l'installation
-reprend où elle s'est arrêtée.
+Attendez le message **Meshroom est installé**. En cas de coupure, relancez.
 
-## 3. Convertir l'acquisition du Nenuscanner
+<details>
+<summary>Ou à la main, pour comprendre ce que fait le script</summary>
+
+1. Ouvrez la page [Meshroom nightly](https://github.com/alicevision/Meshroom/releases/tag/nightly) et téléchargez
+   `Meshroom-…-windows-full.zip` (Windows) ou `Meshroom-…-linux-full.tar.gz` (Linux).
+2. Extrayez l'archive dans le dossier de ce dépôt, puis renommez le dossier obtenu en `Meshroom`.
+3. Téléchargez l'[arbre de vocabulaire](https://gitlab.com/alicevision/trainedVocabularyTreeData/raw/master/vlfeat_K80L3.SIFT.tree)
+   et placez-le dans `Meshroom/aliceVision/share/aliceVision/`.
+
+Vous devez obtenir :
+
+```text
+dopamin/
+├── Meshroom/
+│   ├── Meshroom.exe  (ou Meshroom sous Linux)
+│   └── aliceVision/share/aliceVision/vlfeat_K80L3.SIFT.tree
+├── installer.bat, convertir.bat, meshroom.bat …
+└── templates/
+```
+
+</details>
+
+## 3. Installer les plugins dans Meshroom
+
+Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même.
+
+1. Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
+2. Cliquez sur le bouton **Manage Plugins**, en haut de la fenêtre.
+3. Cherchez et installez, l'un après l'autre :
+
+   | Plugin | Rôle |
+   | :-- | :-- |
+   | `mrSegmentation` | détourer l'objet (SAM 3) |
+   | `mrLedGetter` | stéréophotométrie calibrée |
+   | `mrLINOUniPS` | stéréophotométrie par apprentissage |
+   | `mrRNbNeuS2` | reconstruction 3D à partir des normales |
+
+4. Fermez Meshroom, puis lancez **`finaliser.bat`** (Windows) ou `./finaliser.sh` (Linux) : il vérifie les plugins et
+   télécharge le moteur de RNb-NeuS2. Attendez le message **Tout est prêt**.
+
+## 4. Convertir l'acquisition du Nenuscanner
 
 Le Nenuscanner fournit une archive `.zip` (photos et fichier `descriptor.yaml`).
 
@@ -57,7 +96,7 @@ archive_meshroom_rapide/
     └── PS_02/ …
 ```
 
-## 4. Reconstruire dans Meshroom
+## 5. Reconstruire dans Meshroom
 
 1. Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
 2. **File > Open Template**, puis choisissez un fichier du dossier `templates/` :
@@ -76,6 +115,8 @@ Le modèle 3D texturé s'affiche dans la vue 3D à la fin du calcul.
 | Problème | Solution |
 | :-- | :-- |
 | L'installation s'arrête | Relancez `installer.bat` ou `./installer.sh` |
+| « Plugins manquants » | Installez-les dans Meshroom (étape 3), puis relancez `finaliser` |
+| LINO-UniPS : `expected scalar type Half but found BFloat16` | Carte graphique trop ancienne : utilisez le template LED-getter |
 | « Meshroom n'est pas encore installé » | Faites l'étape 2 |
 | « Le dossier de sortie existe déjà » | Supprimez l'ancien dossier `…_meshroom_rapide`, ou renommez-le |
 

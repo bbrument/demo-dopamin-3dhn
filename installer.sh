@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Installe Meshroom et les plugins de l'atelier dans le dossier Meshroom/ à côté de ce fichier.
+# Installe Meshroom dans le dossier Meshroom/ à côté de ce fichier. Les plugins s'installent ensuite dans Meshroom.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
-if [ ! -x Meshroom/bin/uv ]; then
+if [ ! -x Meshroom/Meshroom ]; then
     echo "[1/2] Téléchargement de Meshroom (600 Mo)..."
     url=$(curl -fsSL https://api.github.com/repos/alicevision/Meshroom/releases/tags/nightly |
         grep -o 'https://[^"]*linux-full\.tar\.gz' | head -1)
@@ -13,7 +13,11 @@ if [ ! -x Meshroom/bin/uv ]; then
     mv Meshroom-*-linux Meshroom
     rm meshroom.tar.gz
 fi
-echo "[2/2] Installation des plugins (1 à 2 heures, 30 Go)..."
-Meshroom/bin/uv run --no-project --python 3.11 scripts/install.py
+tree=Meshroom/aliceVision/share/aliceVision/vlfeat_K80L3.SIFT.tree
+if [ ! -f "$tree" ]; then
+    echo "[2/2] Téléchargement de l'arbre de vocabulaire..."
+    curl -fL --retry 5 -o "$tree.part" https://gitlab.com/alicevision/trainedVocabularyTreeData/raw/master/vlfeat_K80L3.SIFT.tree
+    mv "$tree.part" "$tree"
+fi
 echo
-echo "Installation terminée. Lancez Meshroom avec ./meshroom.sh"
+echo "Meshroom est installé. Lancez-le avec ./meshroom.sh, puis installez les plugins (étape 3 du README)."

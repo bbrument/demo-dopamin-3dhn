@@ -1,9 +1,8 @@
-"""Termine l'installation de l'atelier : arbre de vocabulaire, plugins Meshroom, moteur RNb-NeuS2.
+"""Complète l'installation des plugins faite dans l'interface de Meshroom (Plugin Manager).
 
-Lancé par installer.bat / installer.sh, une fois Meshroom extrait dans Meshroom/. Peut être relancé : chaque étape
-déjà faite est sautée.
+Lancé par finaliser.bat / finaliser.sh. Fait ce que le Plugin Manager ne fait pas encore : vérifier que les quatre
+plugins de l'atelier sont là, et télécharger le moteur RNb-NeuS2. Peut être relancé : ce qui est fait est sauté.
 """
-import shutil
 import subprocess
 import sys
 import tarfile
@@ -15,11 +14,8 @@ WINDOWS = sys.platform == "win32"
 REPO = Path(__file__).resolve().parent.parent
 MESHROOM = REPO / "Meshroom"
 PLUGINS_DIR = MESHROOM / "plugins"
-MESHROOM_PLUGINS = MESHROOM / ("meshroom_plugins.exe" if WINDOWS else "meshroom_plugins")
 
 PLUGINS = ["mrSegmentation", "mrLedGetter", "mrLINOUniPS", "mrRNbNeuS2"]
-VOC_TREE_URL = "https://gitlab.com/alicevision/trainedVocabularyTreeData/raw/master/vlfeat_K80L3.SIFT.tree"
-VOC_TREE = MESHROOM / "aliceVision" / "share" / "aliceVision" / "vlfeat_K80L3.SIFT.tree"
 RNB_VERSION = "2.0.3"
 RNB_ARCHIVE = f"RNb-NeuS2-{RNB_VERSION}-" + ("windows-x86_64-cu128.zip" if WINDOWS else "linux-x86_64-cu128.tar.gz")
 RNB_URL = f"https://github.com/RobinBruneau/RNb-NeuS2/releases/download/v{RNB_VERSION}/{RNB_ARCHIVE}"
@@ -46,21 +42,12 @@ def download(url, target):
     partial.replace(target)
 
 
-def step_voc_tree():
-    if VOC_TREE.exists():
-        return print("Arbre de vocabulaire : déjà là.")
-    print("Arbre de vocabulaire...")
-    download(VOC_TREE_URL, VOC_TREE)
-
-
 def step_plugins():
-    subprocess.run([str(MESHROOM_PLUGINS), "list"], check=True, stdout=subprocess.DEVNULL)  # crée plugins/
-    for name in PLUGINS:
-        if (PLUGINS_DIR / name).is_dir():
-            print(f"Plugin {name} : déjà là.")
-            continue
-        print(f"Plugin {name}...")
-        subprocess.run([str(MESHROOM_PLUGINS), "install", "-f", name], check=True)
+    missing = [name for name in PLUGINS if not (PLUGINS_DIR / name).is_dir()]
+    if missing:
+        sys.exit("Plugins manquants : " + ", ".join(missing)
+                 + "\nInstallez-les dans Meshroom (bouton Manage Plugins), fermez Meshroom, puis relancez.")
+    print("Plugins : les quatre sont installés.")
 
 
 def step_rnb_neus2():
@@ -82,17 +69,14 @@ def step_rnb_neus2():
 
 
 def main():
-    if not MESHROOM_PLUGINS.exists():
+    if not MESHROOM.is_dir():
         sys.exit(f"ERREUR : Meshroom introuvable dans {MESHROOM}")
-    free = shutil.disk_usage(REPO).free / 1e9
-    if free < 30 and not PLUGINS_DIR.exists():
-        sys.exit(f"ERREUR : {free:.0f} Go libres sur ce disque, il en faut 30.")
-    for step in (step_voc_tree, step_plugins, step_rnb_neus2):
+    for step in (step_plugins, step_rnb_neus2):
         try:
             step()
         except (subprocess.CalledProcessError, OSError) as exc:
             sys.exit(f"ERREUR ({step.__name__}) : {exc}")
-    print("Plugins installés.")
+    print("Tout est prêt.")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 @echo off
-rem Installe Meshroom et les plugins de l'atelier dans le dossier Meshroom\ a cote de ce fichier.
+rem Installe Meshroom dans le dossier Meshroom\ a cote de ce fichier. Les plugins s'installent ensuite dans Meshroom.
 chcp 65001 >nul
 setlocal
 cd /d "%~dp0"
-if exist "Meshroom\bin\uv.exe" goto plugins
+if exist "Meshroom\Meshroom.exe" goto arbre
 
 echo [1/2] Telechargement de Meshroom (600 Mo)...
 for /f "usebackq delims=" %%u in (`powershell -NoProfile -Command "((Invoke-RestMethod 'https://api.github.com/repos/alicevision/Meshroom/releases/tags/nightly').assets | Where-Object name -like '*windows-full.zip' | Select-Object -First 1).browser_download_url"`) do set "URL=%%u"
@@ -16,19 +16,24 @@ curl.exe -L -C - --retry 5 -o meshroom.zip "%URL%" || goto erreur
 echo Extraction...
 tar.exe -xf meshroom.zip || goto erreur
 for /d %%d in (Meshroom-*-windows) do ren "%%d" Meshroom
-if not exist "Meshroom\bin\uv.exe" goto erreur
+if not exist "Meshroom\Meshroom.exe" goto erreur
 del meshroom.zip
 
-:plugins
-echo [2/2] Installation des plugins (1 a 2 heures, 30 Go)...
-"Meshroom\bin\uv.exe" run --no-project --python 3.11 scripts\install.py || goto erreur
+:arbre
+set "TREE=Meshroom\aliceVision\share\aliceVision\vlfeat_K80L3.SIFT.tree"
+if exist "%TREE%" goto fin
+echo [2/2] Telechargement de l'arbre de vocabulaire...
+curl.exe -L --retry 5 -o "%TREE%.part" https://gitlab.com/alicevision/trainedVocabularyTreeData/raw/master/vlfeat_K80L3.SIFT.tree || goto erreur
+move /y "%TREE%.part" "%TREE%" >nul
+
+:fin
 echo.
-echo Installation terminee. Lancez Meshroom avec meshroom.bat
+echo Meshroom est installe. Lancez-le avec meshroom.bat, puis installez les plugins (etape 3 du README).
 pause
 exit /b 0
 
 :erreur
 echo.
-echo ERREUR pendant l'installation. Relancez installer.bat : il reprend ou il s'est arrete.
+echo ERREUR pendant l'installation. Relancez installer.bat.
 pause
 exit /b 1
