@@ -3,9 +3,9 @@ rem Installe Meshroom dans le dossier Meshroom\ a cote de ce fichier. Les plugin
 chcp 65001 >nul
 setlocal
 cd /d "%~dp0"
-if exist "Meshroom\Meshroom.exe" goto arbre
+if exist "Meshroom\Meshroom.exe" goto fin
 
-echo [1/2] Telechargement de Meshroom (600 Mo)...
+echo Telechargement de Meshroom (600 Mo)...
 for /f "usebackq delims=" %%u in (`powershell -NoProfile -Command "((Invoke-RestMethod 'https://api.github.com/repos/alicevision/Meshroom/releases/tags/nightly').assets | Where-Object name -like '*windows-full.zip' | Select-Object -First 1).browser_download_url"`) do set "URL=%%u"
 if not defined URL (
     echo ERREUR : impossible de trouver Meshroom en ligne. Verifiez la connexion internet.
@@ -18,13 +18,6 @@ tar.exe -xf meshroom.zip || goto erreur
 for /d %%d in (Meshroom-*-windows) do ren "%%d" Meshroom
 if not exist "Meshroom\Meshroom.exe" goto erreur
 del meshroom.zip
-
-:arbre
-set "TREE=Meshroom\aliceVision\share\aliceVision\vlfeat_K80L3.SIFT.tree"
-if exist "%TREE%" goto fin
-echo [2/2] Telechargement de l'arbre de vocabulaire...
-curl.exe -L --retry 5 -o "%TREE%.part" https://gitlab.com/alicevision/trainedVocabularyTreeData/raw/master/vlfeat_K80L3.SIFT.tree || goto erreur
-move /y "%TREE%.part" "%TREE%" >nul
 
 :fin
 echo.

@@ -43,16 +43,13 @@ Attendez le message **Meshroom est installé**. En cas de coupure, relancez.
 1. Ouvrez la page [Meshroom nightly](https://github.com/alicevision/Meshroom/releases/tag/nightly) et téléchargez
    `Meshroom-…-windows-full.zip` (Windows) ou `Meshroom-…-linux-full.tar.gz` (Linux).
 2. Extrayez l'archive dans le dossier de ce dépôt, puis renommez le dossier obtenu en `Meshroom`.
-3. Téléchargez l'[arbre de vocabulaire](https://gitlab.com/alicevision/trainedVocabularyTreeData/raw/master/vlfeat_K80L3.SIFT.tree)
-   et placez-le dans `Meshroom/aliceVision/share/aliceVision/`.
 
 Vous devez obtenir :
 
 ```text
 dopamin/
 ├── Meshroom/
-│   ├── Meshroom.exe  (ou Meshroom sous Linux)
-│   └── aliceVision/share/aliceVision/vlfeat_K80L3.SIFT.tree
+│   └── Meshroom.exe  (ou Meshroom sous Linux)
 ├── installer.bat, convertir.bat, meshroom.bat …
 └── templates/
 ```
