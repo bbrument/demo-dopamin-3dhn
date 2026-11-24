@@ -1,0 +1,7 @@
+Meshroom/
+meshroom.zip
+meshroom.tar.gz
+models/
+*.log
+*.pgid
+__pycache__/

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14213d"/>
+      <stop offset="1" stop-color="#27476e"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#fca311"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <text x="60" y="70" fill="#ffffff" font-size="38" font-weight="700">Atelier DOPAMIn</text>
+  <text x="60" y="104" fill="#e5e5e5" font-size="20">Du Nenuscanner au modèle 3D dans Meshroom · Journées 3DHN 2026</text>
+
+  <g font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <g>
+      <rect x="60" y="150" width="225" height="104" rx="14" fill="#ffffff" fill-opacity="0.10" stroke="#fca311" stroke-width="2"/>
+      <!-- dome and LEDs -->
+      <path d="M128 208 a44 44 0 0 1 88 0" fill="none" stroke="#fca311" stroke-width="3"/>
+      <g fill="#ffd166"><circle cx="134" cy="190" r="4"/><circle cx="152" cy="172" r="4"/><circle cx="172" cy="165" r="4"/><circle cx="192" cy="172" r="4"/><circle cx="210" cy="190" r="4"/></g>
+      <rect x="160" y="196" width="24" height="12" rx="2" fill="#e5e5e5"/>
+      <text x="172" y="240">1 · Acquérir</text>
+    </g>
+    <g>
+      <rect x="345" y="150" width="225" height="104" rx="14" fill="#ffffff" fill-opacity="0.10" stroke="#fca311" stroke-width="2"/>
+      <!-- archive to folders -->
+      <rect x="402" y="170" width="34" height="40" rx="4" fill="none" stroke="#e5e5e5" stroke-width="3"/>
+      <path d="M419 170 v40" stroke="#e5e5e5" stroke-width="3" stroke-dasharray="4 4"/>
+      <path d="M446 190 h22" stroke="#fca311" stroke-width="3" marker-end="url(#arrow)"/>
+      <path d="M478 176 h14 l5 6 h20 v28 h-39 z" fill="#ffd166"/>
+      <text x="457" y="240">2 · Convertir</text>
+    </g>
+    <g>
+      <rect x="630" y="150" width="225" height="104" rx="14" fill="#ffffff" fill-opacity="0.10" stroke="#fca311" stroke-width="2"/>
+      <!-- node graph -->
+      <g fill="#e5e5e5"><rect x="684" y="172" width="30" height="16" rx="3"/><rect x="684" y="196" width="30" height="16" rx="3"/><rect x="734" y="184" width="30" height="16" rx="3"/><rect x="784" y="184" width="30" height="16" rx="3" fill="#ffd166"/></g>
+      <g stroke="#fca311" stroke-width="2.5" fill="none"><path d="M714 180 C724 180 724 192 734 192"/><path d="M714 204 C724 204 724 192 734 192"/><path d="M764 192 h20"/></g>
+      <text x="742" y="240">3 · Reconstruire</text>
+    </g>
+    <g>
+      <rect x="915" y="150" width="225" height="104" rx="14" fill="#ffffff" fill-opacity="0.10" stroke="#fca311" stroke-width="2"/>
+      <!-- 3D model -->
+      <g stroke="#e5e5e5" stroke-width="2.5" stroke-linejoin="round">
+        <path d="M1027 166 l30 14 v26 l-30 14 l-30 -14 v-26 z" fill="#ffd166" fill-opacity="0.85"/>
+        <path d="M997 180 l30 14 l30 -14 M1027 194 v26" fill="none"/>
+      </g>
+      <text x="1027" y="240">4 · Explorer</text>
+    </g>
+  </g>
+  <g stroke="#fca311" stroke-width="3" fill="none">
+    <path d="M291 202 h46" marker-end="url(#arrow)"/>
+    <path d="M576 202 h46" marker-end="url(#arrow)"/>
+    <path d="M861 202 h46" marker-end="url(#arrow)"/>
+  </g>
+</svg>
