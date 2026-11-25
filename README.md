@@ -82,6 +82,16 @@ Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même
 5. Fermez Meshroom, puis lancez **`finaliser.bat`** (Windows) ou `./finaliser.sh` (Linux) : il vérifie les plugins et
    télécharge le moteur de RNb-NeuS2. Attendez le message **Tout est prêt**.
 
+<details>
+<summary>Plan B : tout installer d'un coup, sans passer par l'interface</summary>
+
+Double-cliquez sur `fast_install.bat` (Windows) ou lancez `./fast_install.sh` (Linux). Le script installe Meshroom,
+les quatre plugins requis et le moteur RNb-NeuS2 : il remplace les étapes 2 et 3. Ajoutez `--engraving` pour le
+plugin facultatif `mrEngravingSeg` (environ 4,5 Go de plus). Quand **Installation terminée** s'affiche, passez à
+l'étape 4.
+
+</details>
+
 ## 4. Reconstruire l'objet
 
 **Préparer les photos.** Le Nenuscanner fournit une archive `.zip`. En attendant un export direct pour Meshroom,
