@@ -37,6 +37,7 @@ if errorlevel 1 goto erreur
 
 echo.
 echo Installation terminee. Lancez Meshroom avec meshroom.bat.
+pause
 exit /b 0
 
 :installerPlugin
@@ -67,4 +68,5 @@ exit /b 2
 :erreur
 echo.
 echo ERREUR : installation incomplete. Corrigez le probleme puis relancez fast_install.bat.
+pause
 exit /b 1

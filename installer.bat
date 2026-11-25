@@ -24,7 +24,7 @@ echo.
 if /i "%~1"=="--no-pause" (
     echo Meshroom est installe.
 ) else (
-    echo Meshroom est installe. Lancez-le avec meshroom.bat, puis installez les plugins (etape 3 du README).
+    echo Meshroom est installe. Lancez-le avec meshroom.bat, puis installez les plugins (etape 3 du README^).
 )
 if /i not "%~1"=="--no-pause" pause
 exit /b 0
