@@ -5,6 +5,9 @@
 **Atelier 2 – Meshroom / DOPAMIn**, mardi 1er décembre 2026, 14 h – 17 h, musée Henri Prades (Lattes) —
 [Journées du Consortium 3D pour les Humanités Numériques 2026](https://jc3dhn2026.sciencesconf.org/).
 
+Animé par [Baptiste Brument](https://bbrument.github.io), [Nino Rottier](https://github.com/steno3), Antoine Laurent
+et [Jean-Denis Durou](https://cv.hal.science/jean-denis-durou).
+
 Vous allez **installer** Meshroom et ses plugins, puis **reconstruire** en 3D un objet photographié par le
 Nenuscanner sous plusieurs éclairages.
 
@@ -25,8 +28,8 @@ Windows n'a pas encore été testé : dites-nous ce qui coince.
 
 1. Bouton vert **Code**, puis **Download ZIP**.
 2. Extrayez le zip dans un dossier au nom court, sans espace ni accent :
-   - Windows : `C:\dopamin`
-   - Linux : `~/dopamin`
+   - Windows : `C:\meshroom_3dhn`
+   - Linux : `~/meshroom_3dhn`
 
 ## 2. Installer Meshroom
 
@@ -47,7 +50,7 @@ Attendez le message **Meshroom est installé**. En cas de coupure, relancez.
 Vous devez obtenir :
 
 ```text
-dopamin/
+meshroom_3dhn/
 ├── Meshroom/
 │   └── Meshroom.exe  (ou Meshroom sous Linux)
 ├── installer.bat, convertir.bat, meshroom.bat …
