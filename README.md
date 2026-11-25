@@ -61,8 +61,14 @@ dopamin/
 Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même.
 
 1. Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
-2. Cliquez sur le bouton **Manage Plugins**, en haut de la fenêtre.
-3. Cherchez et installez, l'un après l'autre :
+2. Cliquez sur le bouton **Manage Plugins**, en haut à droite.
+
+   ![Bouton Manage Plugins](docs/images/ui_manage_plugins.png)
+
+3. Pour chaque plugin du tableau : cliquez sur sa ligne, puis sur **Install**, et attendez la mention `done`.
+   Le pas-à-pas en images est dans [docs/plugins.md](docs/plugins.md).
+
+   ![Installation d'un plugin](docs/images/ui_plugin_running.png)
 
    | Plugin | Rôle |
    | :-- | :-- |
@@ -71,7 +77,8 @@ Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même
    | `mrLINOUniPS` | stéréophotométrie par apprentissage |
    | `mrRNbNeuS2` | reconstruction 3D à partir des normales |
 
-4. Fermez Meshroom, puis lancez **`finaliser.bat`** (Windows) ou `./finaliser.sh` (Linux) : il vérifie les plugins et
+4. Cliquez sur **Restart Now** dans le bandeau bleu pour redémarrer Meshroom.
+5. Fermez Meshroom, puis lancez **`finaliser.bat`** (Windows) ou `./finaliser.sh` (Linux) : il vérifie les plugins et
    télécharge le moteur de RNb-NeuS2. Attendez le message **Tout est prêt**.
 
 ## 4. Reconstruire l'objet
