@@ -2,7 +2,7 @@
 
 [![Journées du Consortium 3D pour les Humanités Numériques 2026](docs/images/jc3dhn2026.jpg)](https://jc3dhn2026.sciencesconf.org/)
 
-**Atelier 2 – Meshroom / Dopamine**, mardi 1er décembre 2026, 14 h – 17 h, musée Henri Prades (Lattes) —
+**Atelier 2 – Meshroom / DOPAMIn**, mardi 1er décembre 2026, 14 h – 17 h, musée Henri Prades (Lattes) —
 [Journées du Consortium 3D pour les Humanités Numériques 2026](https://jc3dhn2026.sciencesconf.org/).
 
 Vous allez **installer** Meshroom et ses plugins, puis **reconstruire** en 3D un objet photographié par le
@@ -146,3 +146,14 @@ Le modèle 3D texturé s'affiche dans la vue 3D à la fin du calcul.
 - Bannière : affiche des [JC3DHN 2026](https://jc3dhn2026.sciencesconf.org/), © Consortium 3DHN
 - Méthodes et jeux de données : [mvml-heritage-meshroom](https://github.com/bbrument/mvml-heritage-meshroom)
 - [Meshroom](https://github.com/alicevision/Meshroom) et ses plugins : [MeshroomHub](https://github.com/meshroomHub)
+
+## Remerciements
+
+Cet atelier s'appuie sur [**DOPAMIn**](https://www.cnrsinnovation.com/actualite/une-seconde-promotion-pour-le-programme-open-7-nouveaux-logiciels-scientifiques-a-valoriser/)
+(*Diffusion Open de Photogrammétrie par AliceVision/Meshroom pour l'Industrie*), projet de la promotion 2024 du
+programme [**OPEN**](https://www.cnrsinnovation.com/open/) de [CNRS Innovation](https://www.cnrsinnovation.com/).
+OPEN soutient la valorisation de logiciels scientifiques libres : développeurs dédiés, gouvernance, partenariats
+industriels.
+
+**Responsable scientifique :** [Jean-Denis Durou](https://cv.hal.science/jean-denis-durou), [IRIT](https://www.irit.fr/) (INP-Toulouse)<br>
+**Co-responsable :** [Lilian Calvet](https://fr.linkedin.com/in/lilian-calvet-42b1a689), [Balgrist University Hospital](https://www.balgrist.ch/)
