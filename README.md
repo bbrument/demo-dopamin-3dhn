@@ -35,7 +35,7 @@ Windows n'a pas encore été testé : dites-nous ce qui coince.
 
 | Windows | Linux |
 | :-- | :-- |
-| Double-cliquez sur **`installer.bat`**. | Ouvrez un terminal dans le dossier, puis tapez `./installer.sh` |
+| Double-cliquez sur **`installer.bat`**. Il crée aussi un raccourci **Meshroom 3DHN** sur le Bureau. | Ouvrez un terminal dans le dossier, puis tapez `./installer.sh` |
 | Si Windows affiche « Windows a protégé votre ordinateur » : **Informations complémentaires**, puis **Exécuter quand même**. | |
 
 Attendez le message **Meshroom est installé**. En cas de coupure, relancez.
@@ -63,7 +63,8 @@ meshroom_3dhn/
 
 Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même.
 
-1. Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
+1. Lancez Meshroom. Windows : double-cliquez sur **`meshroom.bat`**, ou sur le raccourci **Meshroom 3DHN** du Bureau.
+   Linux : `./meshroom.sh`.
 2. Cliquez sur **New Empty Project**, puis sur le bouton **Manage Plugins**, en haut à droite.
 
    ![Bouton Manage Plugins](docs/images/ui_manage_plugins.png)
@@ -82,7 +83,7 @@ Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même
    | `mrEngravingSeg` (facultatif) | repérer les gravures sur les cartes de normales |
 
 4. Cliquez sur **Restart Now** dans le bandeau bleu pour redémarrer Meshroom.
-5. Fermez Meshroom, puis lancez **`finaliser.bat`** (Windows) ou `./finaliser.sh` (Linux) : il vérifie les plugins et
+5. Fermez Meshroom, puis double-cliquez sur **`finaliser.bat`** (Windows) ou tapez `./finaliser.sh` (Linux) : il vérifie les plugins et
    télécharge le moteur de RNb-NeuS2. Attendez le message **Tout est prêt**.
 
 <details>
@@ -117,7 +118,8 @@ archive_meshroom/
 
 **Dans Meshroom :**
 
-1. Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
+1. Lancez Meshroom. Windows : double-cliquez sur **`meshroom.bat`**, ou sur le raccourci **Meshroom 3DHN** du Bureau.
+   Linux : `./meshroom.sh`.
 2. **File > Open Template**, puis choisissez un fichier du dossier `templates/` :
    - `nenuscanner_led_getter.mgt` : stéréophotométrie calibrée (LED-getter) ;
    - `nenuscanner_lino_unips.mgt` : stéréophotométrie par apprentissage (LINO-UniPS).

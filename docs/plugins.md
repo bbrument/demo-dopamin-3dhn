@@ -5,7 +5,8 @@ Les méthodes de l'atelier sont des **plugins**. Meshroom les télécharge et le
 
 ## 1. Ouvrir le Plugin Manager
 
-Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
+Lancez Meshroom. Windows : double-cliquez sur **`meshroom.bat`**, ou sur le raccourci **Meshroom 3DHN** du Bureau.
+Linux : `./meshroom.sh`.
 
 ![Page d'accueil de Meshroom](images/ui_accueil.png)
 

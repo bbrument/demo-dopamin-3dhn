@@ -20,6 +20,8 @@ if not exist "Meshroom\Meshroom.exe" goto erreur
 del meshroom.zip
 
 :fin
+rem Raccourci sur le Bureau (sans consequence s'il ne peut pas etre cree)
+powershell -NoProfile -Command "$s=(New-Object -ComObject WScript.Shell).CreateShortcut([Environment]::GetFolderPath('Desktop')+'\Meshroom 3DHN.lnk'); $s.TargetPath='%~dp0meshroom.bat'; $s.WorkingDirectory='%~dp0'; $s.IconLocation='%~dp0Meshroom\Meshroom.exe,0'; $s.Save()" >nul 2>&1
 echo.
 if /i "%~1"=="--no-pause" (
     echo Meshroom est installe.
