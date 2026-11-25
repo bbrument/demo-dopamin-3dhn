@@ -61,7 +61,7 @@ dopamin/
 Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même.
 
 1. Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
-2. Cliquez sur le bouton **Manage Plugins**, en haut à droite.
+2. Cliquez sur **New Empty Project**, puis sur le bouton **Manage Plugins**, en haut à droite.
 
    ![Bouton Manage Plugins](docs/images/ui_manage_plugins.png)
 
@@ -76,6 +76,7 @@ Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même
    | `mrLedGetter` | stéréophotométrie calibrée |
    | `mrLINOUniPS` | stéréophotométrie par apprentissage |
    | `mrRNbNeuS2` | reconstruction 3D à partir des normales |
+   | `mrEngravingSeg` (facultatif) | repérer les gravures sur les cartes de normales |
 
 4. Cliquez sur **Restart Now** dans le bandeau bleu pour redémarrer Meshroom.
 5. Fermez Meshroom, puis lancez **`finaliser.bat`** (Windows) ou `./finaliser.sh` (Linux) : il vérifie les plugins et
@@ -110,7 +111,8 @@ archive_meshroom/
 
    Les deux détectent l'objet (SAM 3) et les marqueurs AprilTag 16h5 posés sur le plateau, et calculent les
    positions de l'appareil sur les photos « toutes LED ». Si vous avez aussi des photos classiques de l'objet (dossier `MV/` à côté de `PS/`), prenez
-   `nenuscanner_mv_led_getter.mgt` ou `nenuscanner_mv_lino_unips.mgt`.
+   `nenuscanner_mv_led_getter.mgt` ou `nenuscanner_mv_lino_unips.mgt`. Pour essayer la détection de gravures
+   (`mrEngravingSeg`) : `nenuscanner_lino_unips_engraving.mgt`.
 3. Glissez le dossier `…_meshroom` dans la galerie d'images, à gauche.
 4. Cliquez sur le nœud **ImageSegmentationSam3** et écrivez dans **Prompt** ce qu'est l'objet, en anglais
    (`statue`, `vase`, `stone`…).

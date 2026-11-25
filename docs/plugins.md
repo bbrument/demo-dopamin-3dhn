@@ -1,22 +1,23 @@
 # Installer les plugins dans Meshroom
 
 Les méthodes de l'atelier sont des **plugins**. Meshroom les télécharge et les installe lui-même, depuis sa fenêtre
-**Plugin Manager**. Les captures viennent d'un poste où des plugins sont déjà installés : votre liste sera différente.
+**Plugin Manager**. Les captures montrent l'installation de `mrEngravingSeg` ; les autres plugins s'installent de la même façon.
 
 ## 1. Ouvrir le Plugin Manager
 
 Lancez Meshroom : **`meshroom.bat`** (Windows) ou `./meshroom.sh` (Linux).
 
-![Fenêtre de Meshroom](images/ui_meshroom.png)
+![Page d'accueil de Meshroom](images/ui_accueil.png)
 
-Cliquez sur le bouton **Manage Plugins** (pièce de puzzle), en haut à droite.
+Cliquez sur **New Empty Project**, puis sur le bouton **Manage Plugins** (pièce de puzzle), en haut à droite.
 
 ![Bouton Manage Plugins](images/ui_manage_plugins.png)
 
 ## 2. Choisir un plugin
 
 La liste montre les plugins déjà présents (`installed`) et ceux que l'on peut ajouter (`available`). Tapez un nom dans
-**Search plugins** pour le retrouver, puis cliquez sur sa ligne : sa description s'affiche à droite.
+**Search plugins** pour le retrouver, en respectant les majuscules (`Engraving`, pas `engraving`), puis cliquez sur
+sa ligne : sa description s'affiche à droite.
 
 ![Liste des plugins](images/ui_plugin_list.png)
 
@@ -31,7 +32,7 @@ passer au plugin suivant.
 
 ![Installation en cours](images/ui_plugin_running.png)
 
-Installez ainsi les quatre plugins de l'atelier :
+Installez ainsi les plugins de l'atelier :
 
 | Plugin | Rôle |
 | :-- | :-- |
@@ -39,12 +40,14 @@ Installez ainsi les quatre plugins de l'atelier :
 | `mrLedGetter` | stéréophotométrie calibrée |
 | `mrLINOUniPS` | stéréophotométrie par apprentissage |
 | `mrRNbNeuS2` | reconstruction 3D à partir des normales |
+| `mrEngravingSeg` (facultatif) | repérer les gravures sur les cartes de normales |
 
 `mrSegmentation` télécharge environ 16 Go de modèles : comptez une à deux heures selon la connexion.
+`mrEngravingSeg` occupe environ 4,5 Go.
 
 ## 4. Redémarrer Meshroom
 
-Un bandeau bleu demande de redémarrer : cliquez sur **Restart Now**.
+Quand la tâche affiche `done`, un bandeau bleu demande de redémarrer : cliquez sur **Restart Now**.
 
 ![Bandeau de redémarrage](images/ui_plugin_restart.png)
 
