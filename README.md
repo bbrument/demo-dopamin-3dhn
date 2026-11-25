@@ -5,8 +5,8 @@
 **Atelier 2 – Meshroom / DOPAMIn**, mardi 1er décembre 2026, 14 h – 17 h, musée Henri Prades (Lattes) —
 [Journées du Consortium 3D pour les Humanités Numériques 2026](https://jc3dhn2026.sciencesconf.org/).
 
-Animé par [Baptiste Brument](https://bbrument.github.io), [Nino Rottier](https://github.com/steno3), Antoine Laurent
-et [Jean-Denis Durou](https://cv.hal.science/jean-denis-durou).
+Animé par [Baptiste Brument](https://bbrument.github.io), [Nino Rottier](https://www.linkedin.com/in/nino-rottier/),
+[Antoine Laurent](https://cv.hal.science/antoine-laurent-archeologie) et [Jean-Denis Durou](https://cv.hal.science/jean-denis-durou).
 
 Vous allez **installer** Meshroom et ses plugins, puis **reconstruire** en 3D un objet photographié par le
 Nenuscanner sous plusieurs éclairages.
