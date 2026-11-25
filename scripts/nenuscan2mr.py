@@ -214,28 +214,19 @@ def ask_path():
     return Path(answer.replace("\\ ", " ") if sys.platform != "win32" else answer)
 
 
-def ask_previews():
-    print("Quelle résolution ?")
-    print("  1 = rapide : aperçus JPEG réduits (conseillé pour l'atelier)")
-    print("  2 = pleine résolution : fichiers NEF")
-    return input("> ").strip() != "2"
-
-
 def main():
     parser = argparse.ArgumentParser(description="Convertit une archive Nenuscanner en dossier pour Meshroom.")
     parser.add_argument("archive", nargs="?", type=Path, help="archive .zip ou dossier contenant descriptor.yaml")
     parser.add_argument("-o", "--output", type=Path, help="dossier de sortie (défaut : à côté de l'archive)")
-    resolution = parser.add_mutually_exclusive_group()
-    resolution.add_argument("--apercus", action="store_true", help="copier les aperçus JPEG réduits")
-    resolution.add_argument("--nef", action="store_true", help="copier les NEF en pleine résolution")
+    parser.add_argument("--apercus", action="store_true",
+                        help="copier les aperçus JPEG (640 px, trop petits pour une reconstruction) au lieu des NEF")
     args = parser.parse_args()
 
     try:
         archive = (args.archive or ask_path()).expanduser().resolve()
-        use_previews = args.apercus or (not args.nef and sys.stdin.isatty() and ask_previews())
-        suffix = "_meshroom_rapide" if use_previews else "_meshroom"
+        suffix = "_meshroom_apercus" if args.apercus else "_meshroom"
         output = args.output or archive.with_name(archive.stem + suffix)
-        convert(archive, output, use_previews)
+        convert(archive, output, args.apercus)
     except (ConversionError, OSError, zipfile.BadZipFile) as exc:
         print(f"\nERREUR : {exc}")
         sys.exit(1)

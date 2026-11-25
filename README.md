@@ -77,18 +77,18 @@ Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même
 ## 4. Reconstruire l'objet
 
 **Préparer les photos.** Le Nenuscanner fournit une archive `.zip`. En attendant un export direct pour Meshroom,
-glissez-la sur **`convertir.bat`** (Linux : `./convertir.sh chemin/vers/archive.zip`) et répondez **1** (rapide).
-Un dossier `…_meshroom_rapide` apparaît à côté de l'archive.
+glissez-la sur **`convertir.bat`** (Linux : `./convertir.sh chemin/vers/archive.zip`).
+Un dossier `…_meshroom` apparaît à côté de l'archive.
 
 <details>
 <summary>Contenu du dossier</summary>
 
 ```text
-archive_meshroom_rapide/
+archive_meshroom/
 └── PS/
     ├── PS_01/                      un dossier par position de l'objet
-    │   ├── led_01.jpg … led_12.jpg     une photo par LED
-    │   └── ambient_all_leds.jpg        toutes les LED allumées
+    │   ├── led_01.nef … led_12.nef     une photo par LED
+    │   └── ambient_all_leds.nef        toutes les LED allumées
     └── PS_02/ …
 ```
 
@@ -100,7 +100,11 @@ archive_meshroom_rapide/
 2. **File > Open Template**, puis choisissez un fichier du dossier `templates/` :
    - `nenuscanner_led_getter.mgt` : stéréophotométrie calibrée (LED-getter) ;
    - `nenuscanner_lino_unips.mgt` : stéréophotométrie par apprentissage (LINO-UniPS).
-3. Glissez le dossier `…_meshroom_rapide` dans la galerie d'images, à gauche.
+
+   Les deux détectent l'objet (SAM 3) et les marqueurs AprilTag 16h5 posés sur le plateau, et calculent les
+   positions de l'appareil sur les photos « toutes LED ». Si vous avez aussi des photos classiques de l'objet (dossier `MV/` à côté de `PS/`), prenez
+   `nenuscanner_mv_led_getter.mgt` ou `nenuscanner_mv_lino_unips.mgt`.
+3. Glissez le dossier `…_meshroom` dans la galerie d'images, à gauche.
 4. Cliquez sur le nœud **ImageSegmentationSam3** et écrivez dans **Prompt** ce qu'est l'objet, en anglais
    (`statue`, `vase`, `stone`…).
 5. **File > Save As**, dans un nouveau dossier.
@@ -116,7 +120,7 @@ Le modèle 3D texturé s'affiche dans la vue 3D à la fin du calcul.
 | « Plugins manquants » | Installez-les dans Meshroom (étape 3), puis relancez `finaliser` |
 | LINO-UniPS : `expected scalar type Half but found BFloat16` | Carte graphique trop ancienne : utilisez le template LED-getter |
 | « Meshroom n'est pas encore installé » | Faites l'étape 2 |
-| « Le dossier de sortie existe déjà » | Supprimez l'ancien dossier `…_meshroom_rapide`, ou renommez-le |
+| « Le dossier de sortie existe déjà » | Supprimez l'ancien dossier `…_meshroom`, ou renommez-le |
 
 ## Pour aller plus loin
 
