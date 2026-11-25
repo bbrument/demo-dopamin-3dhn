@@ -1,7 +1,7 @@
 # Installer les plugins dans Meshroom
 
 Les méthodes de l'atelier sont des **plugins**. Meshroom les télécharge et les installe lui-même, depuis sa fenêtre
-**Plugin Manager**. Les captures montrent l'installation de `mrEngravingSeg` ; les autres plugins s'installent de la même façon.
+**Plugin Manager**. Les captures montrent l'installation de `mrRNbNeuS2` ; les autres plugins s'installent de la même façon.
 
 ## 1. Ouvrir le Plugin Manager
 
@@ -15,9 +15,9 @@ Cliquez sur **New Empty Project**, puis sur le bouton **Manage Plugins** (pièce
 
 ## 2. Choisir un plugin
 
-La liste montre les plugins déjà présents (`installed`) et ceux que l'on peut ajouter (`available`). Tapez un nom dans
-**Search plugins** pour le retrouver, en respectant les majuscules (`Engraving`, pas `engraving`), puis cliquez sur
-sa ligne : sa description s'affiche à droite.
+La liste montre les plugins déjà présents (`installed`) et ceux que l'on peut ajouter (`available`). Cliquez sur la
+ligne d'un plugin : sa description s'affiche à droite. Le champ **Search plugins** filtre la liste, en respectant
+les majuscules (`RNb`, pas `rnb`).
 
 ![Liste des plugins](images/ui_plugin_list.png)
 
