@@ -28,6 +28,13 @@ Windows n'a pas encore été testé : dites-nous ce qui coince.
    - Windows : `C:\dopamin`
    - Linux : `~/dopamin`
 
+**Installation automatique (alternative) :** après extraction, double-cliquez sur `fast_install.bat` (Windows) ou
+lancez `./fast_install.sh` (Linux). Le script installe Meshroom, les quatre plugins requis et le moteur RNb-NeuS2 ;
+il remplace les étapes 2 et 3 ci-dessous ainsi que le lancement de `finaliser`. Pour installer aussi le plugin
+facultatif de détection des gravures, utilisez `fast_install.bat --engraving` ou `./fast_install.sh --engraving`
+(environ 4,5 Go supplémentaires). Si l'installation automatique échoue, suivez plutôt les étapes 2 et 3 une à une,
+puis lancez `finaliser` comme indiqué à l'étape 3. Une fois **Installation terminée** affiché, passez à l'étape 4.
+
 ## 2. Installer Meshroom
 
 | Windows | Linux |

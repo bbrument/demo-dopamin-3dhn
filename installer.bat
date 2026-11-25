@@ -21,12 +21,16 @@ del meshroom.zip
 
 :fin
 echo.
-echo Meshroom est installe. Lancez-le avec meshroom.bat, puis installez les plugins (etape 3 du README).
-pause
+if /i "%~1"=="--no-pause" (
+    echo Meshroom est installe.
+) else (
+    echo Meshroom est installe. Lancez-le avec meshroom.bat, puis installez les plugins (etape 3 du README).
+)
+if /i not "%~1"=="--no-pause" pause
 exit /b 0
 
 :erreur
 echo.
 echo ERREUR pendant l'installation. Relancez installer.bat.
-pause
+if /i not "%~1"=="--no-pause" pause
 exit /b 1
