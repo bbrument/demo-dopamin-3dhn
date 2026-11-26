@@ -145,6 +145,7 @@ Le modèle 3D texturé s'affiche dans la vue 3D à la fin du calcul.
 | LINO-UniPS : `expected scalar type Half but found BFloat16` | Carte graphique trop ancienne : utilisez le template LED-getter |
 | « Meshroom n'est pas encore installé » | Faites l'étape 2 |
 | « Le dossier de sortie existe déjà » | Supprimez l'ancien dossier `…_meshroom`, ou renommez-le |
+| Linux : « 3D Viewer unavailable » | Le calcul n'est pas touché. Ouvrez `MeshroomCache/Texturing/…/texturedMesh.obj` (à côté de votre projet) dans [MeshLab](https://www.meshlab.net). Sous Ubuntu 24.04, `sudo apt install libassimp5 libdraco8` rétablit la vue 3D |
 
 ## Pour aller plus loin
 
