@@ -15,7 +15,8 @@ REPO = Path(__file__).resolve().parent.parent
 MESHROOM = REPO / "Meshroom"
 PLUGINS_DIR = MESHROOM / "plugins"
 
-PLUGINS = ["mrSegmentation", "mrLedGetter", "mrLINOUniPS", "mrRNbNeuS2"]
+# mrLedGetter : Linux seulement (JAX n'a pas de version GPU sous Windows).
+PLUGINS = ["mrSegmentation", "mrLINOUniPS", "mrRNbNeuS2"] + ([] if WINDOWS else ["mrLedGetter"])
 RNB_VERSION = "2.0.3"
 RNB_ARCHIVE = f"RNb-NeuS2-{RNB_VERSION}-" + ("windows-x86_64-cu128.zip" if WINDOWS else "linux-x86_64-cu128.tar.gz")
 RNB_URL = f"https://github.com/RobinBruneau/RNb-NeuS2/releases/download/v{RNB_VERSION}/{RNB_ARCHIVE}"
@@ -47,7 +48,7 @@ def step_plugins():
     if missing:
         sys.exit("Plugins manquants : " + ", ".join(missing)
                  + "\nInstallez-les dans Meshroom (bouton Manage Plugins), fermez Meshroom, puis relancez.")
-    print("Plugins : les quatre sont installés.")
+    print("Plugins : tous installés (" + ", ".join(PLUGINS) + ").")
 
 
 def step_rnb_neus2():

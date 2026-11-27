@@ -21,8 +21,10 @@ Nenuscanner sous plusieurs éclairages.
 | Système | Windows 10 ou 11, ou Linux (Ubuntu 22.04 ou plus récent) |
 | Carte graphique | NVIDIA, pilote à jour (série RTX 30 ou plus récente pour LINO-UniPS) |
 | Disque | 40 Go libres |
+| Windows seulement | [Git pour Windows](https://git-scm.com/download/win), installé avec les options par défaut |
 
-Windows n'a pas encore été testé : dites-nous ce qui coince.
+Sous Windows, LED-getter (`mrLedGetter`) ne s'installe pas : JAX n'y a pas de version GPU. Utilisez les templates
+LINO-UniPS. Windows est en cours de test : dites-nous ce qui coince.
 
 ## 1. Télécharger ce dépôt
 
@@ -77,7 +79,7 @@ Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même
    | Plugin | Rôle |
    | :-- | :-- |
    | `mrSegmentation` | détourer l'objet (SAM 3) |
-   | `mrLedGetter` | stéréophotométrie calibrée |
+   | `mrLedGetter` (Linux seulement) | stéréophotométrie calibrée |
    | `mrLINOUniPS` | stéréophotométrie par apprentissage |
    | `mrRNbNeuS2` | reconstruction 3D à partir des normales |
    | `mrEngravingSeg` (facultatif) | repérer les gravures sur les cartes de normales |
@@ -90,7 +92,7 @@ Les méthodes de l'atelier sont des **plugins**, que Meshroom installe lui-même
 <summary>Plan B : tout installer d'un coup, sans passer par l'interface</summary>
 
 Double-cliquez sur `fast_install.bat` (Windows) ou lancez `./fast_install.sh` (Linux). Le script installe Meshroom,
-les quatre plugins requis et le moteur RNb-NeuS2 : il remplace les étapes 2 et 3. Ajoutez `--engraving` pour le
+les plugins requis et le moteur RNb-NeuS2 : il remplace les étapes 2 et 3. Ajoutez `--engraving` pour le
 plugin facultatif `mrEngravingSeg` (environ 4,5 Go de plus). Quand **Installation terminée** s'affiche, passez à
 l'étape 4.
 
@@ -121,7 +123,7 @@ archive_meshroom/
 1. Lancez Meshroom. Windows : double-cliquez sur **`meshroom.bat`**, ou sur le raccourci **Meshroom 3DHN** du Bureau.
    Linux : `./meshroom.sh`.
 2. **File > Open Template**, puis choisissez un fichier du dossier `templates/` :
-   - `nenuscanner_led_getter.mgt` : stéréophotométrie calibrée (LED-getter) ;
+   - `nenuscanner_led_getter.mgt` : stéréophotométrie calibrée (LED-getter, Linux seulement) ;
    - `nenuscanner_lino_unips.mgt` : stéréophotométrie par apprentissage (LINO-UniPS).
 
    Les deux détectent l'objet (SAM 3) et les marqueurs AprilTag 16h5 posés sur le plateau, et calculent les
@@ -145,6 +147,8 @@ Le modèle 3D texturé s'affiche dans la vue 3D à la fin du calcul.
 | LINO-UniPS : `expected scalar type Half but found BFloat16` | Carte graphique trop ancienne : utilisez le template LED-getter |
 | « Meshroom n'est pas encore installé » | Faites l'étape 2 |
 | « Le dossier de sortie existe déjà » | Supprimez l'ancien dossier `…_meshroom`, ou renommez-le |
+| Windows : `mrRNbNeuS2`, « UV command failed » (`Filename too long` dans la fenêtre noire) | Lancez Meshroom par `meshroom.bat` (pas par `Meshroom.exe`), puis réinstallez le plugin. Si l'erreur reste : `git config --global core.longpaths true` dans un terminal, puis réessayez |
+| Windows : « Failed to move the plugin » | Fermez les fenêtres de l'Explorateur ouvertes dans `Meshroom\plugins`, supprimez-y les dossiers commençant par `__` s'il y en a, puis réessayez. Si l'erreur reste, mettez en pause l'antivirus le temps de l'installation |
 | Linux : « 3D Viewer unavailable » | Le calcul n'est pas touché. Ouvrez `MeshroomCache/Texturing/…/texturedMesh.obj` (à côté de votre projet) dans [MeshLab](https://www.meshlab.net). Sous Ubuntu 24.04, `sudo apt install libassimp5 libdraco8` rétablit la vue 3D |
 
 ## Pour aller plus loin
