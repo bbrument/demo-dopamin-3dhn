@@ -6,7 +6,7 @@ if not exist "%~dp0Meshroom\Meshroom.exe" (
     pause
     exit /b 1
 )
-rem Chemins longs pour git (le depot RNb-NeuS2 depasse la limite Windows de 260 caracteres).
+rem Chemins longs pour git (precaution : certains depots depassent la limite Windows de 260 caracteres).
 set "GIT_CONFIG_COUNT=1"
 set "GIT_CONFIG_KEY_0=core.longpaths"
 set "GIT_CONFIG_VALUE_0=true"

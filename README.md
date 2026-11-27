@@ -147,7 +147,7 @@ Le modèle 3D texturé s'affiche dans la vue 3D à la fin du calcul.
 | LINO-UniPS : `expected scalar type Half but found BFloat16` | Carte graphique trop ancienne : utilisez le template LED-getter |
 | « Meshroom n'est pas encore installé » | Faites l'étape 2 |
 | « Le dossier de sortie existe déjà » | Supprimez l'ancien dossier `…_meshroom`, ou renommez-le |
-| Windows : `mrRNbNeuS2`, « UV command failed » (`Filename too long` dans la fenêtre noire) | Lancez Meshroom par `meshroom.bat` (pas par `Meshroom.exe`), puis réinstallez le plugin. Si l'erreur reste : `git config --global core.longpaths true` dans un terminal, puis réessayez |
+| Windows : « UV command failed » à l'installation d'un plugin (`Filename too long` dans la fenêtre noire) | Lancez Meshroom par `meshroom.bat` (pas par `Meshroom.exe`), puis réinstallez le plugin. Si l'erreur reste : `git config --global core.longpaths true` dans un terminal, puis réessayez |
 | Windows : « Failed to move the plugin » | Fermez les fenêtres de l'Explorateur ouvertes dans `Meshroom\plugins`, supprimez-y les dossiers commençant par `__` s'il y en a, puis réessayez. Si l'erreur reste, mettez en pause l'antivirus le temps de l'installation |
 | Linux : « 3D Viewer unavailable » | Le calcul n'est pas touché. Ouvrez `MeshroomCache/Texturing/…/texturedMesh.obj` (à côté de votre projet) dans [MeshLab](https://www.meshlab.net). Sous Ubuntu 24.04, `sudo apt install libassimp5 libdraco8` rétablit la vue 3D |
 
