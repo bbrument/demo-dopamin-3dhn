@@ -3336,7 +3336,7 @@
     "graph": {
         "CameraInit_1": {
             "nodeType": "CameraInit",
-            "version": "12.1",
+            "version": "13.0",
             "position": [
                 0,
                 0
