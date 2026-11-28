@@ -131,8 +131,10 @@ archive_meshroom/
    `nenuscanner_mv_led_getter.mgt` ou `nenuscanner_mv_lino_unips.mgt`. Pour essayer la détection de gravures
    (`mrEngravingSeg`) : `nenuscanner_lino_unips_engraving.mgt`.
 3. Glissez le dossier `…_meshroom` dans la galerie d'images, à gauche.
-4. Cliquez sur le nœud **ImageSegmentationSam3** et écrivez dans **Prompt** ce qu'est l'objet, en anglais
-   (`statue`, `vase`, `stone`…).
+4. **Étape à ne pas oublier.** Cliquez sur le nœud **ImageSegmentationSam3** et écrivez dans **Prompt** ce
+   qu'est l'objet, en anglais (`statue`, `vase`, `stone`…). La valeur par défaut est `statue`. Si le mot ne
+   décrit pas l'objet, celui-ci n'est pas détecté : le calcul continue sans message d'erreur, mais les caméras
+   ne sont pas retrouvées et le résultat est vide.
 5. **File > Save As**, dans un nouveau dossier.
 6. Cliquez sur **Start**.
 

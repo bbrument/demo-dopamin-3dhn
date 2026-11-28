@@ -3498,7 +3498,7 @@
             ],
             "inputs": {
                 "input": "{ImageProcessing_1.outSfMData}",
-                "prompt": "object",
+                "prompt": "statue",
                 "extensionOut": "png"
             }
         },
